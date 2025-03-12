@@ -8,6 +8,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* SONER Logo Animation */
+        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
+        
+        /* SONER Logo styles */
+        .soner-logo { display: flex; align-items: center; color: white; font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 300; }
+        .soner-radar { width: 24px; height: 24px; border-radius: 50%; border: 1px solid white; margin: 0 3px; position: relative; background-color: rgba(255, 255, 255, 0.05); overflow: hidden; }
+        .soner-scanner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: sonerScan 4s linear infinite; transform-origin: center; }
+        .soner-scanner::before { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)); transform-origin: bottom left; clip-path: polygon(0 0, 100% 0, 0 100%); }
+        .soner-scanner::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); transform-origin: left center; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); }
+        .soner-blip { position: absolute; width: 2px; height: 2px; background-color: white; border-radius: 50%; opacity: 0; box-shadow: 0 0 4px white; }
+        .soner-blip:nth-child(1) { top: 25%; left: 30%; animation: sonerBlip 4s 1s infinite; }
+        .soner-blip:nth-child(2) { top: 65%; left: 60%; animation: sonerBlip 4s 2.5s infinite; }
+        .soner-tagline { color: white; font-size: 8px; text-transform: uppercase; font-weight: 500; letter-spacing: 0.5em; margin-left: 10px; opacity: 0.8; }
+
         :root {
             --primary: #4285f4;
             --primary-light: #1a2233;
@@ -303,22 +318,6 @@
     </style>
 </head>
 <body>
-    <!-- Add keyframes for SONER logo animation -->
-    <style>
-        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
-        
-        /* SONER Logo styles */
-        .soner-logo { display: flex; align-items: center; color: white; font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 300; }
-        .soner-radar { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #4285f4; margin: 0 3px; position: relative; background-color: rgba(66, 133, 244, 0.05); overflow: hidden; }
-        .soner-scanner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: sonerScan 4s linear infinite; transform-origin: center; }
-        .soner-scanner::before { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, rgba(66, 133, 244, 0), rgba(66, 133, 244, 0.4)); transform-origin: bottom left; clip-path: polygon(0 0, 100% 0, 0 100%); }
-        .soner-scanner::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 1px; background: linear-gradient(90deg, rgba(66, 133, 244, 0.2), rgba(66, 133, 244, 1)); transform-origin: left center; box-shadow: 0 0 4px rgba(66, 133, 244, 0.8); }
-        .soner-blip { position: absolute; width: 2px; height: 2px; background-color: #4285f4; border-radius: 50%; opacity: 0; box-shadow: 0 0 4px #4285f4; }
-        .soner-blip:nth-child(1) { top: 25%; left: 30%; animation: sonerBlip 4s 1s infinite; }
-        .soner-blip:nth-child(2) { top: 65%; left: 60%; animation: sonerBlip 4s 2.5s infinite; }
-        .soner-tagline { color: #4285f4; font-size: 8px; text-transform: uppercase; font-weight: 500; letter-spacing: 0.5em; margin-left: 10px; opacity: 0.8; }
-    </style>
     <header>
         <div class="container">
             <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
@@ -328,7 +327,7 @@
                         <div class="soner-blip"></div>
                         <div class="soner-blip"></div>
                     </div>NER
-                    <span class="soner-tagline">Data Intelligence</span>
+                    <span class="soner-tagline">Visual Intelligence</span>
                 </div>
             </div>
             <h1>India Market Metrics & Insights</h1>
@@ -491,7 +490,7 @@
             
             <div class="calculation">
                 <h5>How It's Calculated:</h5>
-                <p>Based on survey responses to questions like "Which of the below holiday destinations are you likely to visit in the next 12 months?" The percentage represents those who respond positively out of those who are aware of Abu Dhabi.</p>
+                <p>Based on survey responses to questions like "Which of the below holiday destinations are you likely to visit in the next 12 months?" The percentage represents those who respond positively out of those who are considering Abu Dhabi.</p>
             </div>
             
             <div class="interpretation">
@@ -624,47 +623,4 @@
                 <h5>Business Implications:</h5>
                 <ul>
                     <li><strong>Travel Queries:</strong> September (367.74 index) represents the clear peak for travel interest, followed by October (253.05), December (235.74), and November (219.47).</li>
-                    <li><strong>Hotel Guests:</strong> November (43,636 guests) and December (43,813 guests) represent the peak season for actual visitation.</li>
-                    <li>The 44-day gap between peak queries (September) and peak stays (November-December) aligns with the average booking window.</li>
-                    <li>Marketing should ensure sufficient inventory and capacity during the November-December peak stay period.</li>
-                    <li>Pricing strategies can be optimized for these high-demand periods.</li>
-                    <li>Marketing campaigns should be concentrated in July-August to influence the September query peak.</li>
-                    <li>There's an opportunity to develop shoulder season campaigns (January-February) to extend the peak period.</li>
-                    <li>Summer months represent a growth opportunity through targeted campaigns highlighting indoor activities and special summer offers.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <h2>Advanced Statistical Metrics</h2>
-        <div class="section-intro">
-            <p>These advanced metrics provide deeper insights into market dynamics, helping to quantify relationships between marketing activities and outcomes, forecast accuracy, and market behavior patterns.</p>
-        </div>
-        
-        <div class="metric-card">
-            <div class="metric-header">
-                <h3 class="metric-title">Seasonality Index</h3>
-                <div class="metric-value">2.0 (high seasonal variation)</div>
-            </div>
-            <p class="metric-description">A statistical measure that quantifies the degree of seasonal variation in the India travel market data.</p>
-            
-            <div class="calculation">
-                <h5>How It's Calculated:</h5>
-                <p>Typically calculated by dividing the highest monthly value by the average monthly value in a year. For example, if September has a travel query index of 367.74 (the highest month in the Moderate scenario) and the average monthly index is around 182.50, the seasonality index would be approximately 2.0 (367.74 ÷ 182.50).</p>
-            </div>
-            
-            <div class="interpretation">
-                <h5>Interpretation:</h5>
-                <ul>
-                    <li><strong>1.0-1.3</strong>: Low seasonal variation (relatively flat demand throughout the year)</li>
-                    <li><strong>1.3-1.6</strong>: Moderate seasonal variation (noticeable peaks and troughs)</li>
-                    <li><strong>1.6-2.0</strong>: High seasonal variation (significant peaks and troughs)</li>
-                    <li><strong>2.0+</strong>: Extreme seasonal variation (very pronounced peaks and low seasons)</li>
-                </ul>
-            </div>
-            
-            <div class="business-implications">
-                <h5>Business Implications:</h5>
-                <ul>
-                    <li>The 2.0 seasonality index indicates high seasonal fluctuations, with the peak month (September) having approximately double the travel query activity of the average month.</li>
-                    <li>This significant seasonality warrants targeted marketing strategies focused on peak periods.</li>
-                    <li>Marketing efforts should be concentrated before
+                    <li><strong>Hotel Guests:</strong
